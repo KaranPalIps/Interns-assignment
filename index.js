@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
+var cors = require('cors')
 var fs = require("fs");
 
-app.get('/listCoins', function (req, res) {
+app.get('/listCoins', cors(),function (req, res) {
    fs.readFile( __dirname + "/" + "coin.json", 'utf8', function (err, data) {
       res.end( data );
    });
